@@ -4,7 +4,7 @@ const { getAllProducts } = require(path.join(__dirname, '../model/produtosModel.
 
 const getProdutos = async (req, res) => {
     try {
-        const produtos = getAllProducts();
+        const produtos = await getAllProducts();
         res.status(200).json(produtos);
     } catch (error) {
         console.error('Erro ao carregar os produtos:', error);
