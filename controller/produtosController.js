@@ -12,4 +12,16 @@ const getProdutos = async (req, res) => {
     }
 };
 
-module.exports = { getProdutos };
+const postProduto = async (req, res) => { 
+
+}
+
+const putProduto = async (req, res) => { 
+    
+}
+
+const deleteProduto = async (req, res) => { 
+    
+}
+
+module.exports = { getProdutos, postProduto, putProduto, deleteProduto };
