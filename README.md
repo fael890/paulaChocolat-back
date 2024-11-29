@@ -1,1 +1,2 @@
-"# paulaChocolat-back" 
+Instalar todas as dependencias
+### npm install 

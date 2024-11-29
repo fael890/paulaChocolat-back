@@ -4,11 +4,10 @@ const path = require('path');
 
 const { getProdutos } = require(path.join(__dirname, '../controller/produtosController.js'));
 
-// function getProdutos(req, res){
-//     const produtos = { "id": 'teste'};
-//     res.status(200).json(produtos);
-// }
-
 router.get('/produtos', getProdutos);
+router.post('/produtos', postProduto);
+router.put('/produtos/:id', putProduto);
+router.delete('/produtos/:id', deleteProduto);
+
 
 module.exports = { produtosRouter: router }
