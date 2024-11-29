@@ -6,11 +6,11 @@ const app = express();
 const port = 3000;
 const hostName = 'localhost';
 
-const { produtosRouter } = require('./routes/produtosRouter.js');
+const { productsRouter } = require('./routes/productsRouter.js');
 
 app.use(cors());
 app.use(json());
-app.use('/', produtosRouter);
+app.use('/', productsRouter);
 
 app.listen(port, () =>{
     console.log(`Server listening on http://${hostName}:${port}`);
