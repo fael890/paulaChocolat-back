@@ -19,6 +19,8 @@ module.exports = (sequelize, DataTypes) => {
     preco: DataTypes.FLOAT,
     imagem: DataTypes.STRING
   }, {
+    freezeTableName: true,
+    timestamps: false,
     sequelize,
     modelName: 'Produto',
   });

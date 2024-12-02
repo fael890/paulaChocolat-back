@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Orcamentos', {
+    await queryInterface.createTable('Orcamento', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -28,19 +28,26 @@ module.exports = {
         type: Sequelize.STRING
       },
       usuarioId: {
-        type: Sequelize.UUID
-      },
-      createdAt: {
+        type: Sequelize.UUID,
         allowNull: false,
-        type: Sequelize.DATE
+        references: {
+          model: "Usuario",
+          key: "id"
+        },
+        onUpdate: "CASCADE",
+        onDelete: "SET NULL"
       },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      }
+      // createdAt: {
+      //   allowNull: false,
+      //   type: Sequelize.DATE
+      // },
+      // updatedAt: {
+      //   allowNull: false,
+      //   type: Sequelize.DATE
+      // }
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Orcamentos');
+    await queryInterface.dropTable('Orcamento');
   }
 };

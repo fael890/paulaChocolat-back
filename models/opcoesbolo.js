@@ -15,9 +15,11 @@ module.exports = (sequelize, DataTypes) => {
   }
   OpcoesBolo.init({
     tipo: DataTypes.INTEGER,
-    descrio: DataTypes.STRING,
+    descricao: DataTypes.STRING,
     imagem: DataTypes.STRING
   }, {
+    freezeTableName: true,
+    timestamps: false,
     sequelize,
     modelName: 'OpcoesBolo',
   });

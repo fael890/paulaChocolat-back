@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Orcamento.belongsTo(models.Usuario);
     }
   }
   Orcamento.init({
@@ -22,6 +22,8 @@ module.exports = (sequelize, DataTypes) => {
     data: DataTypes.STRING,
     usuarioId: DataTypes.UUID
   }, {
+    freezeTableName: true,
+    timestamps: false,
     sequelize,
     modelName: 'Orcamento',
   });

@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Usuario.hasMany(models.Orcamento);
     }
   }
   Usuario.init({
@@ -20,6 +20,8 @@ module.exports = (sequelize, DataTypes) => {
     senha: DataTypes.STRING,
     papel: DataTypes.STRING
   }, {
+    freezeTableName: true,
+    timestamps: false,
     sequelize,
     modelName: 'Usuario',
   });
