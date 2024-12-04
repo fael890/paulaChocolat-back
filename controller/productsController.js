@@ -1,6 +1,6 @@
 const path = require('path');
 
-const { getAllProducts } = require(path.join(__dirname, '../service/productsService.js'));
+const { getAllProducts } = require(path.join(__dirname, '../services/productsService.js'));
 
 const getProducts = async (req, res) => {
     try {
