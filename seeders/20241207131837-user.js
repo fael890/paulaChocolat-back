@@ -6,10 +6,23 @@ module.exports = {
     await queryInterface.bulkInsert('Usuario',
       [
         {
-          "id": 1,
           "primeiroNome": "Rafael",
           "ultimoNome": "Capodeferro",
           "email": "marinho@gmail.com",
+          "senha": "123456",
+          "papel": "Cliente"
+        },
+        {
+          "primeiroNome": "Carlos",
+          "ultimoNome": "Amaral",
+          "email": "carlos@gmail.com",
+          "senha": "123456",
+          "papel": "Cliente"
+        },
+        {
+          "primeiroNome": "Lucas",
+          "ultimoNome": "Moraes",
+          "email": "lucas@gmail.com",
           "senha": "123456",
           "papel": "Cliente"
         },

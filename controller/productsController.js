@@ -1,6 +1,6 @@
 const path = require('path');
 
-const { selectAllProducts, insertProduct, deleteProductById, updateProductById } = require(path.join(__dirname, '../services/productsService.js'));
+const { selectAllProducts, insertProduct, deleteProductById, updateProductById, insertProductImage } = require(path.join(__dirname, '../services/productsService.js'));
 
 const getProducts = async (req, res) => {
     try {
@@ -57,7 +57,7 @@ const deleteProduct = async (req, res) => {
             res.status(400).json(result); 
         }
     } catch (error) {
-        console.error('Erro ao processar o salvamento do produto:', error);
+        console.error('Erro ao deletar produto:', error);
         res.status(500).json({ 
             success: false, 
             message: "Erro interno no servidor", 
@@ -66,4 +66,22 @@ const deleteProduct = async (req, res) => {
     }
 }
 
-module.exports = { getProducts, postProduct, putProduct, deleteProduct };
+const uploadImage = async (req, res) => {
+    try {
+        const result = await insertProductImage(req);
+        if (result.success) {
+            res.status(200).json(result);
+        } else {
+            res.status(400).json(result);
+        }
+    } catch (error) {
+        console.error('Erro ao processar o salvar imagem:', error);
+        res.status(500).json({ 
+            success: false, 
+            message: "Erro interno no servidor", 
+            error: error.message 
+        });
+    }
+}
+
+module.exports = { getProducts, postProduct, putProduct, deleteProduct, uploadImage };

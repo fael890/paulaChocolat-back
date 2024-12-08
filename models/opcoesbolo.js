@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   OpcoesBolo.init({
     tipo: DataTypes.INTEGER,
+    nome: DataTypes.STRING,
     descricao: DataTypes.STRING,
     imagem: DataTypes.STRING
   }, {

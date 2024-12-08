@@ -1,6 +1,5 @@
-//const { Op } = require('sequelize');
-
 const { Produto } = require("../models");
+const path = require('path');
 
 async function selectAllProducts() {
     return await Produto.findAll();
@@ -28,7 +27,7 @@ async function insertProduct(req) {
 async function updateProductById(req) {
     try {
         let produto = await Produto.findByPk(req.params['id']);
-        if(produto) {
+        if (produto) {
             produto.titulo = req.body.titulo;
             produto.descricao = req.body.descricao;
             produto.preco = req.body.preco;
@@ -54,7 +53,7 @@ async function updateProductById(req) {
 async function deleteProductById(req) {
     try {
         const produto = await Produto.findByPk(req.params['id']);
-        if(produto) {
+        if (produto) {
             await produto.destroy();
             return {
                 success: true,
@@ -73,4 +72,34 @@ async function deleteProductById(req) {
     }
 }
 
-module.exports = { selectAllProducts, insertProduct, deleteProductById, updateProductById };
+async function insertProductImage(req) {
+    try {
+        if (!req.files || !req.files.formData) {
+            return {
+                success: false,
+                message: "Nenhuma imagem enviada."
+            };
+        }
+
+        const imagem = req.files.formData;
+        const uploadPath = path.join('public', 'static', imagem.name);
+
+        console.log(uploadPath);
+
+        await imagem.mv(uploadPath);
+
+        return {
+            success: true,
+            message: "Imagem salva com sucesso",
+            imagem: uploadPath
+        };
+    } catch (error) {
+        console.error('Erro ao salvar imagem: ', error);
+        return {
+            success: false,
+            message: "Erro ao salvar imagem."
+        };
+    }
+}
+
+module.exports = { selectAllProducts, insertProduct, deleteProductById, updateProductById, insertProductImage };
