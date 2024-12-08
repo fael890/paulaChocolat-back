@@ -12,7 +12,8 @@ async function validateLogin(req) {
         if (req.body.email === user.email && req.body.senha === user.senha) {
             return {
                 "primeiroNome": user.primeiroNome,
-                "papel": user.papel
+                "papel": user.papel,
+                "email": user.email
             }
         } else {
             return "Email ou senha incorreto(s)."

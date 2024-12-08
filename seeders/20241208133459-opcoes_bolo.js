@@ -6,15 +6,27 @@ module.exports = {
     await queryInterface.bulkInsert('OpcoesBolo',
       [
         {
-          "tipo": 1,
-          "nome":"nome do item",
-          "descricao":"descricao do item",
+          "tipo": 0,
+          "nome":"cobertura",
+          "descricao":"descricao da cobertura",
           "imagem":"URL imagem",
         },
         {
+          "tipo": 1,
+          "nome":"recheio1",
+          "descricao":"descricao do recheio1",
+          "imagem":"URL imagem2",
+        },
+        {
           "tipo": 2,
-          "nome":"nome do 2",
-          "descricao":"descricao do item2",
+          "nome":"recheio2",
+          "descricao":"descricao do recheio2",
+          "imagem":"URL imagem",
+        },
+        {
+          "tipo": 3,
+          "nome":"massa",
+          "descricao":"descricao da massa",
           "imagem":"URL imagem2",
         },
       ],

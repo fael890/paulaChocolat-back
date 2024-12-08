@@ -22,7 +22,7 @@ async function selectAllUserBudgets(req) {
         if (budgets.length !== 0) {
             return budgets;
         } else {
-            return "Não existem orçamentos cadastros para esse usuário" ;
+            return "Não existem orçamentos cadastrados para esse usuário" ;
         }
     } catch (error) {
         console.error('Erro ao consultar orçamentos: ', error);
@@ -31,10 +31,11 @@ async function selectAllUserBudgets(req) {
 }
 
 async function insertBudget(req) {
+    console.log("==============", req.body.usuario);
     try {
         let user = await Usuario.findOne({
             where: {
-                email: req.body.email,
+                email: req.body.usuario,
             }
         });
 
@@ -47,12 +48,13 @@ async function insertBudget(req) {
             "data": req.body.data,
             "usuarioId": user.id,
         });
-
+        //orcamento.email = user.email
         return {
             success: true,
             message: "Orçamento salvo com sucesso",
             data: orcamento
-        };
+        };//orcamento;
+            
     } catch (error) {
         console.error('Erro ao salvar: ', error);
         return "Erro ao salvar";

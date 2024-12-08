@@ -9,21 +9,14 @@ module.exports = {
           "primeiroNome": "Rafael",
           "ultimoNome": "Capodeferro",
           "email": "marinho@gmail.com",
-          "senha": "123456",
-          "papel": "Cliente"
+          "senha": "12345",
+          "papel": "Gerente"
         },
         {
           "primeiroNome": "Carlos",
           "ultimoNome": "Amaral",
           "email": "carlos@gmail.com",
-          "senha": "123456",
-          "papel": "Cliente"
-        },
-        {
-          "primeiroNome": "Lucas",
-          "ultimoNome": "Moraes",
-          "email": "lucas@gmail.com",
-          "senha": "123456",
+          "senha": "12345",
           "papel": "Cliente"
         },
       ],
