@@ -17,7 +17,7 @@ async function insertProduct(req) {
             success: true,
             message: "Produto salvo com sucesso",
             data: produto
-        };
+        }
     } catch (error) {
         console.error('Erro ao salvar: ', error);
         return "Erro ao salvar";
@@ -74,25 +74,25 @@ async function deleteProductById(req) {
 
 async function insertProductImage(req) {
     try {
-        if (!req.files || !req.files.formData) {
+        console.log(req.files);
+        if (!req.files) {
             return {
                 success: false,
                 message: "Nenhuma imagem enviada."
             };
         }
 
-        const imagem = req.files.formData;
+        const imagem = req.files.imagem;
         const uploadPath = path.join('public', 'static', imagem.name);
 
         console.log(uploadPath);
 
         await imagem.mv(uploadPath);
 
-        return {
+        return { 
             success: true,
-            message: "Imagem salva com sucesso",
-            imagem: uploadPath
-        };
+            path: uploadPath
+        }
     } catch (error) {
         console.error('Erro ao salvar imagem: ', error);
         return {

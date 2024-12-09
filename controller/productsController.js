@@ -69,11 +69,12 @@ const deleteProduct = async (req, res) => {
 const uploadImage = async (req, res) => {
     try {
         const result = await insertProductImage(req);
-        if (result.success) {
-            res.status(200).json(result);
-        } else {
-            res.status(400).json(result);
-        }
+        res.status(200).json(result);
+        // if (result.success) {
+        //     res.status(200).json(result);
+        // } else {
+        //     res.status(400).json(result);
+        // }
     } catch (error) {
         console.error('Erro ao processar o salvar imagem:', error);
         res.status(500).json({ 
