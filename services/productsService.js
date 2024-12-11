@@ -91,7 +91,7 @@ async function insertProductImage(req) {
 
         return { 
             success: true,
-            path: uploadPath
+            nomeImagem: imagem.name
         }
     } catch (error) {
         console.error('Erro ao salvar imagem: ', error);
