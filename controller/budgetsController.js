@@ -1,6 +1,6 @@
 const path = require('path');
 
-const { selectAllItems, selectAllUserBudgets, insertBudget, updateBudgetById, deleteBudgetById } = require(path.join(__dirname, '../services/budgetsService.js'));
+const { selectAllItems, selectBudgetById, selectAllUserBudgets, insertBudget, updateBudgetById, deleteBudgetById } = require(path.join(__dirname, '../services/budgetsService.js'));
 
 const getItems = async (req, res) => {
     try {
@@ -11,6 +11,16 @@ const getItems = async (req, res) => {
         res.status(500).json({ error: 'Erro ao obter os items' });
     }
 };
+
+const getBudget = async (req, res) => {
+    try {
+        const budget = await selectBudgetById(req);
+        res.status(200).json(budget);
+    } catch (error) {
+        console.error('Erro ao carregar orçamento:', error);
+        res.status(500).json({ error: 'Erro ao obter os orçamento' });
+    }
+}
 
 const getBudgets = async (req, res) => {
     try {
@@ -76,4 +86,4 @@ const deleteBudget = async (req, res) => {
     }
 }
 
-module.exports = { getItems, getBudgets, postBudget, putBudget, deleteBudget }
+module.exports = { getItems, getBudgets, postBudget, putBudget, deleteBudget, getBudget }

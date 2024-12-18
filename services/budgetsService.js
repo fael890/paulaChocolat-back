@@ -30,6 +30,21 @@ async function selectAllUserBudgets(req) {
     }
 }
 
+async function selectBudgetById(req) {
+    try {
+        const orcamento = await Orcamento.findByPk(req.params['id']);
+        if(orcamento !== null) {
+            return orcamento;
+        } else {
+            return "Orçamento não existe";
+        }
+    }
+    catch (error) {
+        console.error('Erro ao buscar: ', error);
+        return "Erro ao buscar";
+    }
+}
+
 async function insertBudget(req) {
     console.log("==============", req.body.usuario);
     try {
@@ -112,4 +127,4 @@ async function deleteBudgetById(req) {
 }
 
 
-module.exports = { selectAllItems, selectAllUserBudgets, insertBudget, updateBudgetById, deleteBudgetById }
+module.exports = { selectAllItems, selectAllUserBudgets, insertBudget, updateBudgetById, deleteBudgetById, selectBudgetById }
