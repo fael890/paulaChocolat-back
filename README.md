@@ -1,6 +1,6 @@
 # Introdução
 A aplicação foi dividida em back-end e front-end. Você pode acessar o front-end
-no seguinte repositório: (https://github.com/julianopita/paulaChocolat-front.git)
+no seguinte repositório: https://github.com/julianopita/paulaChocolat-front.git
 
 ## Utilizando a aplicação (sem docker)
 Com o terminal dentro do diretório **/paulaChocolat-back** você precisa instalar
